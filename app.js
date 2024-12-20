@@ -74,24 +74,36 @@ addCodeBlockButton.addEventListener('click', () => {
 });
 // Функція завантаження файлу
 loadButton.addEventListener('click', () => {
+    console.log("Натиснута кнопка завантаження файлу"); // Інформаційне логування
+
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.md';
 
     input.addEventListener('change', (event) => {
         const file = event.target.files[0];
-        if (!file) return;
+        if (!file) {
+            console.warn("Файл для завантаження не обрано");
+            return;
+        }
 
         const reader = new FileReader();
         reader.onload = (e) => {
+            console.log(`Файл завантажено: ${file.name}`); // Логування успішного завантаження
             markdownInput.value = e.target.result;
             updatePreview();
         };
+
+        reader.onerror = () => {
+            console.error("Помилка зчитування файлу"); // Логування помилки
+        };
+
         reader.readAsText(file);
     });
 
     input.click();
 });
+
 
 // Функція збереження файлу
 saveButton.addEventListener('click', () => {
