@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Ліва панель: Текстовий редактор -->
+        <div class="editor-panel">
+            <h2>Markdown Editor</h2>
+            <div class="toolbar">
+                <button id="add-heading">Заголовок</button>
+                <button id="add-line">Рядок</button>
+                <button id="add-bullet-list">Маркерований список</button>
+                <button id="add-numbered-list">Нумерований список</button>
+                <button id="add-quote">Цитата</button>
+                <button id="add-code-block">Кодовий блок</button>
+            </div>
+            
+            <textarea id="markdown-input" placeholder="Введіть Markdown-текст..."></textarea>
+            <div class="buttons">
+                <button id="load-btn">Завантажити файл</button>
+                <button id="save-btn">Зберегти файл</button>
+            </div>
+        </div>
+        
+        <!-- Права панель: Живий перегляд -->
+        <div class="preview-panel">
+            <h2>Live Preview</h2>
+            <div id="markdown-preview"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
